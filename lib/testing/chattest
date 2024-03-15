@@ -1,0 +1,77 @@
+import 'package:flutter/material.dart';
+
+class ChatsScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: SingleChildScrollView(
+        child: Center(
+          child: Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Padding(padding: EdgeInsets.all(15)),
+                const Text(
+                  "Chats",
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                  Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        TextFormField(
+                          decoration: const InputDecoration(
+                            hintText: 'Search',
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.horizontal(
+                                left: Radius.circular(10),
+                                right: Radius.circular(10),
+                              ),
+                            ),
+                            prefixIcon: Icon(Icons.search),
+                          ),
+                        )
+                      ]),
+                ]),
+                SizedBox(
+                  height: 100,
+                  child: ListView.builder(
+                      scrollDirection: Axis.horizontal,
+                      shrinkWrap: true,
+                      itemCount: 10,
+                      itemBuilder: (context, index) {
+                        return const Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: CircleAvatar(
+                            radius: 35,
+                            backgroundColor: Colors.blue,
+                          ),
+                        );
+                      }),
+                ),
+                // Expanded(
+                //   child: ListView.builder(
+                //       shrinkWrap: true,
+                //       itemCount: 10,
+                //       itemBuilder: (context, index) {
+                //         return const Padding(
+                //           padding: EdgeInsets.all(8.0),
+                //           child: CircleAvatar(
+                //             radius: 35,
+                //             backgroundColor: Colors.blue,
+                //           ),
+                //         );
+                //       }),
+                // ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
